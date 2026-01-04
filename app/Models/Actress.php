@@ -32,6 +32,7 @@ class Actress extends Model
 
     public function videos(): BelongsToMany
     {
-        return $this->belongsToMany(Video::class, 'video_actress');
+        return $this->belongsToMany(Video::class, 'video_actress')
+            ->withTimestamps();
     }
 }

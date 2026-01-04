@@ -23,6 +23,7 @@ class Tag extends Model
 
     public function videos(): BelongsToMany
     {
-        return $this->belongsToMany(Video::class, 'video_tag');
+        return $this->belongsToMany(Video::class, 'video_tag')
+            ->withTimestamps();
     }
 }

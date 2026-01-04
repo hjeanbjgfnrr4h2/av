@@ -9,6 +9,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'role' => 'admin',
             'is_premium' => true,
         ]);
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $user1 = User::create([
             'name' => 'John Doe',
             'email' => 'john@example.com',
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'role' => 'user',
             'is_premium' => false,
         ]);
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $user2 = User::create([
             'name' => 'Jane Smith',
             'email' => 'jane@example.com',
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'role' => 'premium',
             'is_premium' => true,
         ]);

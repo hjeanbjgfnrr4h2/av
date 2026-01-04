@@ -31,6 +31,7 @@ class Category extends Model
 
     public function videos(): BelongsToMany
     {
-        return $this->belongsToMany(Video::class, 'video_category');
+        return $this->belongsToMany(Video::class, 'video_category')
+            ->withTimestamps();
     }
 }

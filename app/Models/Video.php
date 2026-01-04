@@ -42,17 +42,20 @@ class Video extends Model
 
     public function actresses(): BelongsToMany
     {
-        return $this->belongsToMany(Actress::class, 'video_actress');
+        return $this->belongsToMany(Actress::class, 'video_actress')
+            ->withTimestamps();
     }
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'video_category');
+        return $this->belongsToMany(Category::class, 'video_category')
+            ->withTimestamps();
     }
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class, 'video_tag');
+        return $this->belongsToMany(Tag::class, 'video_tag')
+            ->withTimestamps();
     }
 
     public function comments(): HasMany

@@ -115,14 +115,14 @@ class CommentResource extends Resource
                         ->icon('heroicon-o-check')
                         ->color('success')
                         ->requiresConfirmation()
-                        ->action(fn ($records) => $records->each(fn ($record) => $record->update(['is_approved' => true]))),
+                        ->action(fn ($records) => Comment::whereIn('id', $records->pluck('id'))->update(['is_approved' => true])),
                     
                     Tables\Actions\BulkAction::make('reject')
                         ->label('Reject selected')
                         ->icon('heroicon-o-x-mark')
                         ->color('danger')
                         ->requiresConfirmation()
-                        ->action(fn ($records) => $records->each(fn ($record) => $record->update(['is_approved' => false]))),
+                        ->action(fn ($records) => Comment::whereIn('id', $records->pluck('id'))->update(['is_approved' => false])),
                     
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
